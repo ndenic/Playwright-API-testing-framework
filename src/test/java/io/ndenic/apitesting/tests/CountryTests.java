@@ -41,7 +41,7 @@ public class CountryTests extends BaseTest {
     @Test(testName = "Get non-existing country by name", groups = {"regression"})
     @Feature("Get non-existing country by its name")
     public void getNonExistingCountryByName() {
-        APIResponse response = apiService.sendRequest("GET", ENDPOINT.get("getCountryByName") + "kos0vo");
+        APIResponse response = apiService.sendRequest("GET", ENDPOINT.get("getCountryByName") + "Wonderland");
         assertEquals(response.status(), HttpStatus.SC_NOT_FOUND);
     }
 
