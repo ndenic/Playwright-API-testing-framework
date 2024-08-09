@@ -5,21 +5,19 @@ import com.microsoft.playwright.options.RequestOptions;
 import io.ndenic.apitesting.model.Country;
 import io.ndenic.apitesting.utils.BaseTest;
 import io.qameta.allure.Feature;
-import io.qameta.allure.internal.shadowed.jackson.core.JsonProcessingException;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.apache.http.HttpStatus;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
-import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
 
 public class CountryTests extends BaseTest {
 
-    public final String COUNTRY = "/germany";
+    public final String COUNTRY = "germany";
     public final String COUNTRY_NATIVE_NAME = "србија";
 
     @SneakyThrows
@@ -67,6 +65,7 @@ public class CountryTests extends BaseTest {
                 apiService.sendRequest("GET",
                         ENDPOINT.get("getCountryByName") + COUNTRY,
                         RequestOptions.create().setQueryParam("fullText", "true"));
+        System.out.println(response.text() + " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
         JSONArray jsonArray = new JSONArray(response.text());
         ObjectMapper mapper = new ObjectMapper();
